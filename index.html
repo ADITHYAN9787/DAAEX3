@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementation of Kruskal's and Prim's Algorithms for MST</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial, Helvetica, sans-serif;
+            background:#f4f6f9;
+            color:#333;
+            line-height:1.6;
+        }
+
+        header{
+            background:#1565c0;
+            color:white;
+            padding:30px;
+            text-align:center;
+        }
+
+        .container{
+            width:90%;
+            max-width:1100px;
+            margin:30px auto;
+        }
+
+        section{
+            background:white;
+            margin-bottom:25px;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0 4px 10px rgba(0,0,0,.1);
+        }
+
+        h2{
+            color:#1565c0;
+            margin-bottom:15px;
+        }
+
+        ul{
+            margin-left:25px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:15px;
+        }
+
+        table,th,td{
+            border:1px solid #ccc;
+        }
+
+        th{
+            background:#1565c0;
+            color:white;
+        }
+
+        th,td{
+            padding:12px;
+            text-align:center;
+        }
+
+        pre{
+            background:#282c34;
+            color:white;
+            padding:15px;
+            border-radius:8px;
+            overflow-x:auto;
+        }
+
+        footer{
+            background:#1565c0;
+            color:white;
+            text-align:center;
+            padding:20px;
+            margin-top:30px;
+        }
+
+        .highlight{
+            color:#1565c0;
+            font-weight:bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+<h1>Implementation of Kruskal's and Prim's Algorithms</h1>
+
+<p>Minimum Spanning Tree (MST) - Design and Analysis of Algorithms Lab</p>
+
+</header>
+
+<div class="container">
+
+<section>
+
+<h2>📖 Problem Statement</h2>
+
+<p>
+
+Given a weighted undirected graph containing
+<strong>7 vertices (0–6)</strong> and
+<strong>9 edges</strong>, implement both
+<span class="highlight">Kruskal's Algorithm</span> and
+<span class="highlight">Prim's Algorithm</span>
+to compute the Minimum Spanning Tree (MST).
+
+</p>
+
+<br>
+
+<p>The project verifies that both algorithms produce the same minimum total weight and compares their time complexity.</p>
+
+</section>
+
+<section>
+
+<h2>🎯 Objectives</h2>
+
+<ul>
+
+<li>Implement Kruskal's Algorithm.</li>
+
+<li>Implement Prim's Algorithm.</li>
+
+<li>Generate the Minimum Spanning Tree.</li>
+
+<li>Compare the total MST weight.</li>
+
+<li>Analyze algorithm complexity.</li>
+
+</ul>
+
+</section>
+
+<section>
+
+<h2>📊 Sample Graph</h2>
+
+<table>
+
+<tr>
+
+<th>Edge</th>
+
+<th>Weight</th>
+
+</tr>
+
+<tr><td>0 — 1</td><td>7</td></tr>
+<tr><td>0 — 3</td><td>5</td></tr>
+<tr><td>1 — 2</td><td>8</td></tr>
+<tr><td>1 — 3</td><td>9</td></tr>
+<tr><td>1 — 4</td><td>7</td></tr>
+<tr><td>2 — 4</td><td>5</td></tr>
+<tr><td>3 — 4</td><td>15</td></tr>
+<tr><td>3 — 5</td><td>6</td></tr>
+<tr><td>4 — 6</td><td>9</td></tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>⚙️ Algorithms Used</h2>
+
+<table>
+
+<tr>
+
+<th>Algorithm</th>
+
+<th>Approach</th>
+
+<th>Data Structure</th>
+
+</tr>
+
+<tr>
+
+<td>Kruskal's</td>
+
+<td>Greedy (Edge Based)</td>
+
+<td>Disjoint Set (Union-Find)</td>
+
+</tr>
+
+<tr>
+
+<td>Prim's</td>
+
+<td>Greedy (Vertex Based)</td>
+
+<td>Priority Queue (Min Heap)</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>⏱️ Time Complexity</h2>
+
+<table>
+
+<tr>
+
+<th>Algorithm</th>
+
+<th>Time Complexity</th>
+
+<th>Space Complexity</th>
+
+</tr>
+
+<tr>
+
+<td>Kruskal's</td>
+
+<td>O(E log E)</td>
+
+<td>O(V)</td>
+
+</tr>
+
+<tr>
+
+<td>Prim's (Heap)</td>
+
+<td>O(E log V)</td>
+
+<td>O(V)</td>
+
+</tr>
+
+</table>
+
+</section>
+
+<section>
+
+<h2>✨ Features</h2>
+
+<ul>
+
+<li>Graph Representation using Adjacency List</li>
+
+<li>Kruskal's Algorithm Implementation</li>
+
+<li>Prim's Algorithm Implementation</li>
+
+<li>Union-Find Data Structure</li>
+
+<li>Priority Queue using Heap</li>
+
+<li>MST Weight Verification</li>
+
+<li>Time Complexity Analysis</li>
+
+</ul>
+
+</section>
+
+<section>
+
+<h2>▶️ How to Run</h2>
+
+<pre>
+python kruskal_prim.py
+</pre>
+
+</section>
+
+<section>
+
+<h2>📁 Repository Structure</h2>
+
+<pre>
+MST-Kruskal-Prim/
+│
+├── kruskal_prim.py
+├── README.md
+└── index.html
+</pre>
+
+</section>
+
+<section>
+
+<h2>📚 Learning Outcomes</h2>
+
+<ul>
+
+<li>Minimum Spanning Tree (MST)</li>
+
+<li>Greedy Algorithms</li>
+
+<li>Disjoint Set (Union-Find)</li>
+
+<li>Priority Queue (Heap)</li>
+
+<li>Graph Representation</li>
+
+<li>Algorithm Complexity Analysis</li>
+
+</ul>
+
+</section>
+
+<section>
+
+<h2>👨‍💻 Author</h2>
+
+<p>
+
+<b>ADITHYAN S</b><br>
+
+Department of Computer Science and Engineering<br>
+
+Chennai Institute of Technology
+
+</p>
+
+</section>
+
+</div>
+
+<footer>
+
+<p>
+Implementation of Kruskal's and Prim's Algorithms for Minimum Spanning Tree © 2026
+</p>
+
+</footer>
+
+</body>
+</html>
